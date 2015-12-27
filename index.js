@@ -1,13 +1,10 @@
 var express = require('express');
 var app = express();
-var gen = require('./lib/generator.js')
+var alg = require('./lib/algorithm.js')
 
-//sends out [[abc],[abc]]
+//sends out 1st element of schedule array
 app.get('/', function(req, res) {
-  gen.sendJason('CSCI-109', 'csci', 20161, function(answer) {
-    res.send(answer);
-  });
-
+  alg.create(function(answer){res.send(answer.toString());});
 });
 
 var server = app.listen(3000, function() {
