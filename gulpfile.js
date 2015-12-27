@@ -15,7 +15,7 @@ gulp.task('jshint', function() {
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-  gulp.src(['./lib/algorithm2.js','./lib/*.js'])
+  gulp.src(['./lib/algorithm.js','./lib/*.js'])
     .pipe(concat('script.js'))
     .pipe(stripDebug())
     .pipe(uglify())
