@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var alg = require('./lib/algorithm.js')
+var alg = require('./lib/algorithm.js');
 
 //sends out 1st element of schedule array
 app.get('/', function(req, res) {
