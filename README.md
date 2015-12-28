@@ -8,4 +8,4 @@ A schedule generator and optimizer for USC students. Enter in your next semester
   <li>Node.js' V8 engine gives better performance in schedule generation</li>
   <li>Recursive implementation of algorithm prevents crashes</li>
 </ul>
-<br><font color='green'>Powered by Node.js</font>
+<br>Powered by Node.js
