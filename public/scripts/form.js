@@ -1,4 +1,15 @@
 var Courses = React.createClass({
+  loadCoursesFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   handleCourseSubmit: function(course) {
     $.ajax({
       url: this.props.url,
@@ -17,9 +28,12 @@ var Courses = React.createClass({
       data: []
     };
   },
+  componentDidMount: function() {
+    this.loadCoursesFromServer();
+  },
   render: function() {
     return (
-      <div className='container'>
+      <div>
         <h2>Courses</h2>
         <CourseForm onCourseSubmit={this.handleCourseSubmit}/>
         <CourseBox data={this.state.data}/>
@@ -78,7 +92,7 @@ var CourseForm = React.createClass({
     return (
       <form className='courseForm' onSubmit={this.handleSubmit}>
         <input type='text' placeholder='Aloha Edward' value={this.state.course} onChange={this.handleCourseChange}/>
-        <input className='btn btn-primary' type='submit' value='POST'/>
+        <input type='submit' value='POST'/>
       </form>
     );
   }
