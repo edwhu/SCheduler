@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var alg = require('./lib/algorithm.js');
+var alg = require('./app/algorithm.js');
 var app = express();
 
 app.use('/', express.static(path.join(__dirname, 'public')));
