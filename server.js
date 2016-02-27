@@ -9,7 +9,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api', (req, res) => {
+app.post('/api', (req, res) => {
   console.log(req.body);
   alg.create(req.body.course, answer => res.send(answer));
 });
